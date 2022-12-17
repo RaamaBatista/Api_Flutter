@@ -1,14 +1,17 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:api_cep_flutter/about.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({
     Key? key,
   }) : super(key: key);
 
+
   @override
   State<HomePage> createState() => _HomePageState();
+ 
 }
 
 class _HomePageState extends State<HomePage> {
@@ -26,8 +29,10 @@ class _HomePageState extends State<HomePage> {
   });
 }
 
+
   //* Widgets //-----------------
   
+
 
   @override
 
@@ -80,8 +85,18 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.only(top: 40),
             child: Text(resultado),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: ElevatedButton(
+                onPressed: () {
+                 Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (_) => PaginaUno()));
+                    
+                }, child: const Text('About')),
+          ),
         ],
+        
       )),
     );
   }
@@ -107,4 +122,5 @@ class Todo {
     );
   }
 }
+
 
